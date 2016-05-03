@@ -1,0 +1,94 @@
+<div class="outer">
+  <div role="main" class="hero inner">
+    <div class="container">
+      <div class="row row1">
+        <div class="span6 col1">
+          <div class="module-content">
+            <h1 class="hero-text-heading hero-text">Open City Toolkit</h1>
+            <p class="hero-text-description hero-text">GEO-C aims to contribute methods and tools to realise smart and open cities, in which all groups of society can participate on all levels and benefit in many ways. Visit the official website of the project at <a href="http://geo-c.eu/">www.geo-c.eu</a></p>
+          </div>
+        </div>
+        <div class="span4 col1">
+          <div class="carousel-controls">
+            <a class="carousel-control left" href="#vizcarousel" data-slide="prev"><img src="/img/larrow.svg"></a>
+            <a class="carousel-control right" href="#vizcarousel" data-slide="next"><img src="/img/rarrow.svg"></a>
+          </div>
+          <div id="vizcarousel" class="carousel">
+            <div class="spinner"></div>
+            <div class="carousel-inner">
+              <div class="active item in" data-url="/render/viz-partial-web" data-slide-number="0"></div>
+              <div class="item" data-url="/render/viz-partial-ej"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div role="main" class="main-search">
+  <div class="container">
+    <div class="row row1">
+      <div class="span6 col1">
+        {% snippet 'home/snippets/search.html' %}
+      </div>
+      <div class="span4 offset1 col1">
+        <div class="module-content box getstarted">
+          <p>
+            Currently, OCT has available 
+            <b>{{ h.oct_dataset_count() }}</b>
+            datasets related to the GEO-C project.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div role="main" class="main-browse">
+  <div class="container">
+    <div class="row row2">
+      <div class="span12 col1">
+        <div class="module-content box">
+          <h1 class="browse-heading">Browse by Topic</h1>
+          <div>
+              {% for topic in h.oct_groups() %}
+                <a href="/group/{{ topic.name }}" class="browse-topic">
+                    <img class="browse-topic-image" src="{{ topic.image_display_url or '/img/icons-document.svg' }}">
+                  <div class="browse-topic-title">
+                    {{ topic.display_name }}
+                  </div>
+                </a>
+              {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div role="main" class="main-featured">
+  <div class="container">
+    <div class="row row2">
+      <div class="span12 col1">
+        <div class="module-content box">
+          <h1 class="featured-heading">Featured Projects</h1>
+            {% snippet "related/snippets/related_list.html", related_items=h.oct_apps() %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div role="main" class="main-updates">
+  <div class="container">
+    <div class="row row2">
+      <div class="span6 col1">
+        {% snippet 'home/snippets/latest_datasets.html' %}
+      </div>
+      <div class="span6 col2">
+        <div class="module-content box">
+          <h2 class="secondary-heading">Tweets</h2>
+          <a class="twitter-timeline"  height="420" data-chrome="nofooter noscrollbar  noheader transparent" href="https://twitter.com/geoC_EU" data-widget-id="725300995245379584">Tweets by @geoC_EU</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>    
